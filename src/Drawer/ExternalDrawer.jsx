@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { styled, useTheme, alpha } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -19,12 +19,9 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { useLocation, useNavigate } from "react-router-dom";
-import Button from '@mui/material/Button';
 import Badge from '@mui/material/Badge';
-import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
@@ -331,9 +328,6 @@ const ExternalDrawer = () => {
                 </IconButton>
                 <p>Profile</p>
             </MenuItem>
-            <MenuItem>
-                <Button variant="contained" color="error" size='large' onClick={() => handleLogout()} >Logout</Button>
-            </MenuItem>
         </Menu>
     );
 
@@ -425,14 +419,6 @@ const ExternalDrawer = () => {
         setOpen(false);
     };
 
-    const handleLogout = () => {
-        localStorage.clear();
-        navigate('/login')
-    }
-
-
-
-
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -481,9 +467,6 @@ const ExternalDrawer = () => {
                         >
                             <AccountCircle />
                         </IconButton>
-                        <div>
-                            <Button variant="contained" color="error" style={{ marginLeft: "10px" }} onClick={() => handleLogout()} >Logout</Button>
-                        </div>
                     </Box>
 
                     {/* this is for mobile view */}
